@@ -19,7 +19,7 @@ function App() {
             </div>
           )}
           <div className="card-image">
-            <img src="./sea.jpg" alt="surfing"/>
+            <img src="./2.jpg" alt="surfing"/>
             <Title /> 
             <Likes />
           </div>
