@@ -1,6 +1,6 @@
 import './App.css';
 import Likes from "./components/Likes"
-import Title from './Title';
+import Title from './components/Title';
 
 function App() {
   return (

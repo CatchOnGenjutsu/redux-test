@@ -1,5 +1,5 @@
 import { useDispatch, useSelector} from "react-redux";
-import {inputText} from "./redux/actions";
+import {inputText} from "../redux/actions";
 
 
 function Title (props) {
