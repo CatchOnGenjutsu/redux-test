@@ -4,11 +4,10 @@ import { commentCreate, commentsLoad } from "../redux/actions";
 import uniqid from "uniqid";
 import SingleComment from "./SingleComment";
 
-
 function Comments(props) {
   const [textComment, setTextComment] = useState("");
   const mainInputRef = useRef();
-  const comments = useSelector(state => {
+  const comments = useSelector((state) => {
     const { commentsReducer } = state;
     return commentsReducer.comments;
   });
@@ -17,7 +16,7 @@ function Comments(props) {
 
   const handleInput = (e) => {
     setTextComment(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,23 +26,29 @@ function Comments(props) {
       setTextComment("");
     }
     mainInputRef.current.blur();
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(commentsLoad());
   }, []);
 
   return (
     <div className="card-comments">
       <form onSubmit={handleSubmit} className="comments-item-create">
-        <input type="text" value={textComment} onChange={handleInput} ref={mainInputRef}/>
-        <input type="submit" hidden/>
+        <input
+          type="text"
+          value={textComment}
+          onChange={handleInput}
+          ref={mainInputRef}
+        />
+        <input type="submit" hidden />
       </form>
-      {!!comments.length && comments.map(res => {
-        return <SingleComment key={res.id} data={res} />
-      })}
+      {!!comments.length &&
+        comments.map((res) => {
+          return <SingleComment key={res.id} data={res} />;
+        })}
     </div>
-  )
+  );
 }
 
 export default Comments;
